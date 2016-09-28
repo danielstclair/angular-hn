@@ -14,6 +14,10 @@ export class HackerNewsAPIService {
     return this.http.get(`${this.baseUrl}/${storyType}?page=${page}`)
       .map(response => response.json());
   }
+  fetchComments(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/item/${id}`)
+      .map(response => response.json());
+  }
   fetchItem(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/item/${id}.json`)
       .map(response => response.json());
